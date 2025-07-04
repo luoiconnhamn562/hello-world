@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import ytlogo from '/ytlogo.png'
 import './App.css'
 
 function App() {
@@ -16,9 +14,12 @@ function App() {
           <img src="./discord-icon.svg" className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Hello World, this is my first website
+      <h1>Hello World, this is my first website. 
   
       </h1>
+       <h2>My name is Nguyễn Nhật Long, who known as Luoicon. 
+  
+      </h2>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
