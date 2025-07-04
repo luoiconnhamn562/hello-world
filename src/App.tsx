@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://youtube.com" target="_blank">
+        <a href="https://www.youtube.com/@luoicon1567" target="_blank">
           <img src="./ytlogo.png" className="logo" alt="Vite logo" />
         </a>
         <a href="https://discord.gg/zQZ6DCWZ" target="_blank">
