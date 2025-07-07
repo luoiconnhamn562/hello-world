@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className='hn.jpg'>
         <a href="https://www.youtube.com/@luoicon1567" target="_blank">
           <img src="./ytlogo.png" className="logo" alt="Vite logo" />
         </a>
