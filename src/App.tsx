@@ -5,8 +5,8 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div className='hn.jpg'>
+    <div className='hn03'>
+      <div>
         <a href="https://www.youtube.com/@luoicon1567" target="_blank">
           <img src="./ytlogo.png" className="logo" alt="Vite logo" />
         </a>
@@ -32,7 +32,7 @@ function App() {
       <p className="read-the-docs">
         Just a small hello, I'm ready to create a nice web for myself
       </p>
-    </>
+    </div>
   )
 }
 

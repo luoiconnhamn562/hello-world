@@ -40,10 +40,10 @@
 .read-the-docs {
   color: #888;
 }
-.hn.jpg {
-  background-image: url('/hn.jpg');
+.hn03 {
+  background-image: url('/hn03.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 100vh; /* Chiều cao tối thiểu toàn màn hình */
+  width: 100%; /* Chiều cao tối thiểu toàn màn hình */
 }
