@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import './App.css'
+import Sidebar from './Sidebar';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className='hn03'>
+      <Sidebar />
       <div>
         <a href="https://www.youtube.com/@luoicon1567" target="_blank">
           <img src="./ytlogo.png" className="logo" alt="Vite logo" />
