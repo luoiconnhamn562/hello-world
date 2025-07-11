@@ -1,41 +1,23 @@
-import { useState } from 'react'
-import './App.css'
+// src/App.tsx
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <div className='hn03'>
+    <Router>
       <Sidebar />
-      <div>
-        <a href="https://www.youtube.com/@luoicon1567" target="_blank">
-          <img src="./ytlogo.png" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://discord.gg/zQZ6DCWZ" target="_blank">
-          <img src="./discord-icon.svg" className="logo react" alt="React logo" />
-        </a>
+      <div style={{ marginLeft: '240px', padding: '20px' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </div>
-      <h1>Hello World, this is my first website. 
-  
-      </h1>
-       <h2>My name is Nguyễn Nhật Long, who known as Luoicon. 
-  
-      </h2>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-        above this line is a mini counter game, you can try by click on it!
-      
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Just a small hello, I'm ready to create a nice web for myself
-      </p>
-    </div>
-  )
-}
+    </Router>
+  );
+};
 
-export default App
+export default App;

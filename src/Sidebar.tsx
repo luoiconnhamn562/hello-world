@@ -1,5 +1,6 @@
 // src/Sidebar.tsx
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
 const Sidebar: React.FC = () => {
@@ -14,9 +15,9 @@ const Sidebar: React.FC = () => {
       <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
         <h2>Menu</h2>
         <ul>
-          <li>Trang chủ</li>
-          <li>Giới thiệu</li>
-          <li>Liên hệ</li>
+          <li><Link to="/">Trang chủ</Link></li>
+          <li><Link to="/about">Giới thiệu</Link></li>
+          <li><Link to="/contact">Liên hệ</Link></li>
         </ul>
       </div>
 
