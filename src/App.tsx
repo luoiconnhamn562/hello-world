@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
-
+import BubbleSort from './pages/sorting/BubbleSort';
 const App: React.FC = () => {
   return (
     <Router>
@@ -14,6 +14,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/sorting/bubble" element={<BubbleSort />} />
         </Routes>
       </div>
     </Router>
