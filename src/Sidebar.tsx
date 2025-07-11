@@ -15,6 +15,7 @@ const Sidebar: React.FC = () => {
       <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
         <h2>Menu</h2>
         <ul>
+          <li><Link to="/sorting/bubble">Bubble Sort</Link></li>
           <li><Link to="/">Trang chủ</Link></li>
           <li><Link to="/about">Giới thiệu</Link></li>
           <li><Link to="/contact">Liên hệ</Link></li>
