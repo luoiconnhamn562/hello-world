@@ -9,6 +9,12 @@ import InsertionSort from './pages/sorting/InsertionSort';
 import MergeSort from './pages/sorting/MergeSort';
 import QuickSort from './pages/sorting/QuickSort';
 import Contact from './pages/Contact';
+import PythonMiniLab from './pages/PythonMiniLab';
+import LinearSearch from './pages/searching/LinearSearch';
+import BinarySearch from './pages/searching/BinarySearch';
+import JumpSearch from './pages/searching/JumpSearch';
+import InterpolationSearch from './pages/searching/InterpolationSearch';
+import ExponentialSearch from './pages/searching/ExponentialSearch';
 const App: React.FC = () => {
   return (
     <Router>
@@ -23,6 +29,12 @@ const App: React.FC = () => {
           <Route path="/sorting/insertion" element={<InsertionSort />} />
           <Route path="/sorting/merge" element={<MergeSort />} />
           <Route path="/sorting/quick" element={<QuickSort />} />
+          <Route path="/python-lab" element={<PythonMiniLab />} />
+          <Route path="/searching/linear" element={<LinearSearch />} />
+          <Route path="/searching/binary" element={<BinarySearch />} />
+          <Route path="/searching/jump" element={<JumpSearch />} />
+          <Route path="/searching/interpolation" element={<InterpolationSearch />} />
+          <Route path="/searching/exponential" element={<ExponentialSearch />} />
         </Routes>
       </div>
     </Router>

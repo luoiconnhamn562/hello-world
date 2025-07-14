@@ -6,9 +6,11 @@ import './Sidebar.css';
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [sortOpen, setSortOpen] = useState<boolean>(false); // điều khiển menu con "Sắp xếp"
+  const [searchOpen, setSearchOpen] = useState<boolean>(false); // điều khiển menu con "Tìm kiếm"
 
   const toggleSidebar = () => setIsOpen(prev => !prev);
   const toggleSortMenu = () => setSortOpen(prev => !prev);
+  const toggleSearchMenu = () => setSearchOpen(prev => !prev);
 
   return (
     <div className="sidebar-container">
@@ -18,6 +20,20 @@ const Sidebar: React.FC = () => {
           <li><Link to="/">Trang chủ</Link></li>
           <li><Link to="/about">Giới thiệu</Link></li>
           
+          <li>
+            <button className="submenu-toggle" onClick={toggleSearchMenu}>
+              {searchOpen ? '▼' : '▶'} Tìm kiếm
+            </button>
+            {searchOpen && (
+              <ul className="submenu">
+                <li><Link to="/searching/linear">Linear Search</Link></li>
+                <li><Link to="/searching/binary">Binary Search</Link></li>
+                <li><Link to="/searching/jump">Jump Search</Link></li>
+                <li><Link to="/searching/interpolation">Interpolation Search</Link></li>
+                <li><Link to="/searching/exponential">Exponential Search</Link></li>
+              </ul>
+            )}
+          </li>
 
           {/* Menu Sắp xếp có submenu */}
           <li>
@@ -34,6 +50,7 @@ const Sidebar: React.FC = () => {
               </ul>
             )}
           </li>
+          <li><Link to="/python-lab">Python Mini Lab</Link></li>
           <li><Link to="/contact">Liên hệ</Link></li>
         </ul>
       </div>
