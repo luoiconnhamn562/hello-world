@@ -50,6 +50,7 @@ const Sidebar: React.FC = () => {
               </ul>
             )}
           </li>
+          <li><Link to="/category">Danh mục bài viết</Link></li>
           <li><Link to="/python-lab">Python Mini Lab</Link></li>
           <li><Link to="/contact">Liên hệ</Link></li>
         </ul>

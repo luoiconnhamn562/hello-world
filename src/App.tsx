@@ -15,6 +15,7 @@ import BinarySearch from './pages/searching/BinarySearch';
 import JumpSearch from './pages/searching/JumpSearch';
 import InterpolationSearch from './pages/searching/InterpolationSearch';
 import ExponentialSearch from './pages/searching/ExponentialSearch';
+import CategoryPage from './pages/CategoryPage';
 const App: React.FC = () => {
   return (
     <Router>
@@ -35,6 +36,7 @@ const App: React.FC = () => {
           <Route path="/searching/jump" element={<JumpSearch />} />
           <Route path="/searching/interpolation" element={<InterpolationSearch />} />
           <Route path="/searching/exponential" element={<ExponentialSearch />} />
+          <Route path="/category" element={<CategoryPage />} />
         </Routes>
       </div>
     </Router>
