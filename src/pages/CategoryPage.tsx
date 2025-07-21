@@ -64,7 +64,7 @@ const CategoryPage: React.FC = () => {
 
       {/* Modal thêm danh mục */}
       {isModalOpen && (
-        <div className="modal-backdrop">
+        <div className="modal-backdrop  card shadow-lg border-0 p-4 mb-5">
           <div className="modal">
             <h3>➕ Thêm danh mục</h3>
             <input
