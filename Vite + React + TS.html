@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:5173/post -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">import { injectIntoGlobalHook } from "/hello-world/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="./Vite + React + TS_files/client"></script>
+
+    <script src="./Vite + React + TS_files/pyodide.js.download"></script>
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:5173/hello-world/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite + React + TS</title>
+  <style type="text/css" data-vite-dev-id="C:/Users/Admin/Documents/GitHub/hello-world/src/index.css">@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</style><style type="text/css" data-vite-dev-id="C:/Users/Admin/Documents/GitHub/hello-world/src/Sidebar.css">/* src/Sidebar.css */
+.sidebar-container {
+  position: relative;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #1E1E2F;
+  color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+  cursor: pointer;
+   background-color: #1E1E2F;
+  color: rgb(211, 211, 211);
+}
+.sidebar a {
+  color: #90CAF9	;
+  text-decoration: none;
+}
+.toggle-button {
+  position: fixed;
+  top: 20px;
+  left: 230px;
+  background-color: #34495e;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: left 0.3s ease;
+  z-index: 1001;
+  border-radius: 5px;
+}
+
+.sidebar.closed ~ .toggle-button {
+  left: 20px;
+}
+.submenu-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.submenu li {
+  margin-bottom: 6px;
+   background-color: #ffffff;
+  color: rgb(245, 110, 110);
+}
+
+.submenu a {
+  color: #81C784;
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  text-decoration: underline;
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/Admin/Documents/GitHub/hello-world/src/pages/Contact.css">/* src/pages/Contact.css */
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px;
+  gap: 40px;
+}
+
+.contact-form {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contact-form h2 {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  margin: 12px 0 5px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.contact-form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #2980b9;
+}
+
+.contact-info {
+  width: 250px;
+  background-color: #fff5e6;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #f39c12;
+}
+
+.contact-info h3 {
+  margin-top: 0;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-info li {
+  margin: 10px 0;
+  font-weight: bold;
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/Admin/Documents/GitHub/hello-world/src/pages/CategoryPage.css">/* src/pages/CategoryPage.css */
+
+.category-page {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  margin-top: 0; /* sát top */
+  margin-left: 0; /* full width */
+  position: relative;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add-btn {
+  background-color: #0c74e2;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #055cb3;
+}
+
+.category-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.category-table th,
+.category-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.del-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.del-btn:hover {
+  background: #c0392b;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 6px;
+  width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3 {
+  margin-top: 0;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.modal-actions .cancel {
+  background-color: #bdc3c7;
+  color: black;
+}
+</style></head>
+  <body>
+    <div id="root"><div class="sidebar-container"><div class="sidebar open"><h2>Menu</h2><ul><li><a href="http://localhost:5173/" data-discover="true">Trang chủ</a></li><li><a href="http://localhost:5173/about" data-discover="true">Giới thiệu</a></li><li><button class="submenu-toggle">▶ Tìm kiếm</button></li><li><button class="submenu-toggle">▶ Sắp xếp</button></li><li><a href="http://localhost:5173/category" data-discover="true">Danh mục</a></li><li><a href="http://localhost:5173/post" data-discover="true">bài viết</a></li><li><a href="http://localhost:5173/python-lab" data-discover="true">Python Mini Lab</a></li><li><a href="http://localhost:5173/contact" data-discover="true">Liên hệ</a></li></ul></div><button class="toggle-button">←</button></div><div style="margin-left: 240px; padding: 20px;"><div class="p-6 max-w-5xl mx-auto"><h1 class="text-2xl font-bold mb-4">📚 Danh Sách Bài Viết</h1><div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-white p-4 rounded shadow"><input placeholder="Tiêu đề" class="border p-2 rounded w-full" type="text" value=""><input class="border p-2 rounded w-full" type="date" value=""><textarea placeholder="Diễn giải" class="border p-2 rounded w-full col-span-2"></textarea><select class="border p-2 rounded"><option value="">-- Chọn danh mục --</option><option value="22DCJeddj3sgA5jrx0Fa"></option><option value="9BzSrGqKAHq2NJFXptMG"></option><option value="C3Afh80sQSjTAibJUHkT"></option><option value="w62DlXwEQk3DSOL8809t"></option></select><button class="bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700">➕ Thêm bài viết</button></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4"></div></div></div></div>
+    <script type="module" src="./Vite + React + TS_files/main.tsx"></script>
+  
+
+</body></html>
