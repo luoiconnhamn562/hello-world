@@ -17,6 +17,7 @@ import InterpolationSearch from './pages/searching/InterpolationSearch';
 import ExponentialSearch from './pages/searching/ExponentialSearch';
 import CategoryPage from './pages/CategoryPage';
 import PostPage from './pages/PostPage';
+import Topics from './pages/Topics';
 const App: React.FC = () => {
   return (
     <Router>
@@ -39,6 +40,7 @@ const App: React.FC = () => {
           <Route path="/searching/exponential" element={<ExponentialSearch />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/post" element={<PostPage />} />
+          <Route path="/topics" element={<Topics />} />
         </Routes>
       </div>
     </Router>
