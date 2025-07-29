@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-
 import './Topics.css';
-import Topics from '../types/Topics';
-import { addTopics, deleteTopics, getTopics } from '../services/TopicsService';
+import Topic from '../types/Topic';
+import { addTopic, deleteTopic, getTopics } from '../services/TopicService';
 
 const TopicsPage: React.FC = () => {
-  const [topics, setTopics] = useState<Topics[]>([]);
+  const [topics, setTopics] = useState<Topic[]>([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [ten, setTen] = useState('');
   const [dienGiai, setDienGiai] = useState('');
@@ -17,7 +16,7 @@ const TopicsPage: React.FC = () => {
 
   const handleAdd = async () => {
     if (ten.trim()) {
-      await addTopics({ ten, noidung: dienGiai });
+      await addTopic({ ten, noidung: dienGiai });
       setTen('');
       setDienGiai('');
       setModalOpen(false);
@@ -26,7 +25,7 @@ const TopicsPage: React.FC = () => {
   };
 
   const handleDelete = async (id: string) => {
-    await deleteTopics(id);
+    await deleteTopic(id);
     fetch();
   };
 
@@ -35,10 +34,15 @@ const TopicsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="topics-page">
+    <div className="topics-page bg-white rounded-lg shadow">
       <div className="topics-header">
         <h2>📋 Chủ đề</h2>
-        <button className="add-btn" onClick={() => setModalOpen(true)}>+ Thêm chủ đề</button>
+        <button
+          className="add-btn hover:scale-105 active:scale-95"
+          onClick={() => setModalOpen(true)}
+        >
+          + Thêm chủ đề
+        </button>
       </div>
 
       <table className="topics-table">
@@ -50,37 +54,51 @@ const TopicsPage: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {topics.map(cat => (
-            <tr key={cat.id}>
+          {topics.map((cat) => (
+            <tr key={cat.id} className="row-hover">
               <td>{cat.ten}</td>
               <td>{cat.noidung}</td>
               <td>
-                <button className="del-btn" onClick={() => handleDelete(cat.id)}>🗑️ Xoá</button>
+                <button
+                  className="del-btn hover:rotate-[-10deg] active:rotate-0"
+                  onClick={() => handleDelete(cat.id)}
+                  title="Xóa chủ đề"
+                >
+                  🗑️
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      {/* Modal thêm danh mục */}
       {isModalOpen && (
-        <div className="modal-backdrop  card shadow-lg border-0 p-4 mb-5">
-          <div className="modal">
+        <div className="modal-backdrop fade-in">
+          <div className="modal slide-down">
             <h3>➕ Thêm chủ đề</h3>
             <input
               type="text"
               placeholder="Tên chủ đề"
               value={ten}
               onChange={(e) => setTen(e.target.value)}
+              className="input-field"
             />
             <textarea
               placeholder="Diễn giải"
               value={dienGiai}
               onChange={(e) => setDienGiai(e.target.value)}
+              className="textarea-field"
             />
             <div className="modal-actions">
-              <button onClick={handleAdd}>Lưu</button>
-              <button className="cancel" onClick={() => setModalOpen(false)}>Huỷ</button>
+              <button className="btn-primary" onClick={handleAdd}>
+                Lưu
+              </button>
+              <button
+                className="btn-secondary"
+                onClick={() => setModalOpen(false)}
+              >
+                Huỷ
+              </button>
             </div>
           </div>
         </div>

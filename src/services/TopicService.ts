@@ -7,28 +7,24 @@ import {
   deleteDoc,
   doc
 } from 'firebase/firestore';
-import type Category from '../types/Topics';
-import Topics from '../types/Topics';
-
-
 const topicsRef = collection(db, 'topics');
-
+import type Topic from '../types/Topic';
 // Thêm danh mục
-export const addTopics = async (cat: Omit<Topics, 'id'>) => {
+export const addTopic = async (cat: Omit<Topic, 'id'>) => {
   const docRef = await addDoc(topicsRef, cat);
   return docRef.id;
 };
 
 // Lấy danh sách danh mục
-export const getTopics = async (): Promise<Topics[]> => {
+export const getTopics = async (): Promise<Topic[]> => {
   const snapshot = await getDocs(topicsRef);
   return snapshot.docs.map(doc => ({
     id: doc.id,
     ...doc.data()
-  } as Topics));
+  } as Topic));
 };
 
 // Xoá danh mục theo id
-export const deleteTopics = async (id: string) => {
+export const deleteTopic = async (id: string) => {
   await deleteDoc(doc(db, 'topics', id));
 };

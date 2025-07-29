@@ -1,5 +1,5 @@
 
-export default interface Topics {
+export default interface Topic {
   id: string;
   ten: string;
   noidung: string;

@@ -7,7 +7,7 @@
   --accent: #ef4444;
 }
 
-.topics-page {
+.lesson-page {
 
   width: 100%;
   padding: 2rem;
@@ -17,13 +17,13 @@
 }
 
 /* Header */
-.topics-header {
+.lesson-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
-.topics-header h2 {
+.lesson-header h2 {
   font-size: 1.5rem;
 }
 .add-btn {
@@ -41,7 +41,7 @@
 }
 
 /* Table */
-.topics-table {
+.lesson-table {
   width: 100%;
   border-collapse: collapse;
   background: white;
@@ -49,8 +49,8 @@
   border-radius: 0.375rem;
   overflow: hidden;
 }
-.topics-table th,
-.topics-table td {
+.lesson-table th,
+.lesson-table td {
   padding: 0.75rem 1rem;
   text-align: left;
 }

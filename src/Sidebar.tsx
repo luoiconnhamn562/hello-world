@@ -53,6 +53,7 @@ const Sidebar: React.FC = () => {
           <li><Link to="/category">Danh mục</Link></li>
           <li><Link to="/post">bài viết</Link></li>
           <li><Link to="/topics">Chủ đề</Link></li>
+          <li><Link to="/lesson">Bài học</Link></li>
           <li><Link to="/python-lab">Python Mini Lab</Link></li>
           <li><Link to="/contact">Liên hệ</Link></li>
         </ul>

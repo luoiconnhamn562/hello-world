@@ -18,11 +18,12 @@ import ExponentialSearch from './pages/searching/ExponentialSearch';
 import CategoryPage from './pages/CategoryPage';
 import PostPage from './pages/PostPage';
 import Topics from './pages/Topics';
+import Lesson from './pages/Lesson';
 const App: React.FC = () => {
   return (
     <Router>
       <Sidebar />
-      <div style={{ marginLeft: '240px', padding: '20px' }}>
+      <div style={{ marginLeft: '240px', padding: '20px' , backgroundColor: '#91fcd3ff' , boxShadow: '0 2px 4px rgba(197, 97, 97, 0.1)',height: '100vh' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -41,6 +42,7 @@ const App: React.FC = () => {
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/post" element={<PostPage />} />
           <Route path="/topics" element={<Topics />} />
+          <Route path="/lesson" element={<Lesson />} />
         </Routes>
       </div>
     </Router>

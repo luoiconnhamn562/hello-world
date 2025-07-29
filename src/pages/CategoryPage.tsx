@@ -35,7 +35,7 @@ const CategoryPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="category-page">
+     <div className=" category-page bg-white rounded-lg shadow">
       <div className="category-header">
         <h2>📋 Danh mục bài viết</h2>
         <button className="add-btn" onClick={() => setModalOpen(true)}>+ Thêm danh mục</button>
