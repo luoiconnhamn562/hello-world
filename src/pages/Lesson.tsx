@@ -31,7 +31,7 @@ const LessonPage: React.FC = () => {
 
   const handleAdd = async () => {
     if (title.trim() && topicId && date) {
-      await addLesson({ title, content, example, date, topicId });
+      await addLesson({ title, content, example, date: new Date().toString(), topicId });
       setTitle('');
       setContent('');
       setExanple('');
@@ -108,13 +108,7 @@ const LessonPage: React.FC = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
-            <ReactQuill
-              theme="snow"
-              value={content}
-              onChange={setContent}
-              placeholder="Nhập diễn giải..."
-              style={{ height: '200px', marginBottom: '1rem' }}
-            />
+            
             <select value={topicId} onChange={(e) => setTopicId(e.target.value)}>
               <option value="">-- Chọn danh mục --</option>
               {topics.map(cat => (

@@ -28,8 +28,8 @@ const PostPage: React.FC = () => {
   };
 
   const handleAdd = async () => {
-    if (title.trim() && categoryId && date) {
-      await addPost({ title, description, date, categoryId });
+    if (title.trim() && categoryId) {
+      await addPost({ title, description, date: new Date() .toString(), categoryId });
       setTitle('');
       setDescription('');
       setDate('');
@@ -107,13 +107,7 @@ const PostPage: React.FC = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-           <ReactQuill
-              theme="snow"
-              value={description}
-              onChange={setDescription}
-              placeholder="Nhập diễn giải..."
-              style={{ height: '200px', marginBottom: '1rem' }}
-            />
+           
             <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
               <option value="">-- Chọn danh mục --</option>
               {categories.map(cat => (
