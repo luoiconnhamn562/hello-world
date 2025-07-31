@@ -30,7 +30,7 @@ const LessonPage: React.FC = () => {
 
 
   const handleAdd = async () => {
-    if (title.trim() && topicId && date) {
+    if (title.trim() && topicId) {
       await addLesson({ title, content, example, date: new Date().toString(), topicId });
       setTitle('');
       setContent('');
@@ -48,8 +48,8 @@ const LessonPage: React.FC = () => {
   };
 
   const getLessonName = (id: string): string => {
-    const found = lessons.find(cat => cat.id === id);
-    return found ? found.topicId : 'Không rõ';
+    const found = topics.find(cat => cat.id === id);
+    return found ? found.ten : 'Không rõ';
   };
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const LessonPage: React.FC = () => {
         <thead>
           <tr>
             <th>Tiêu đề</th>
-            <th>Diễn giải</th>
+        
             <th>Ngày</th>
             <th>Danh mục</th>
             <th>Hành động</th>
@@ -77,13 +77,7 @@ const LessonPage: React.FC = () => {
           {lessons.map(lesson => (
             <tr key={lesson.id}>
               <td>{lesson.title}</td>
-              <td>
-                <div
-                  className="ql-editor"
-                  dangerouslySetInnerHTML={{ __html: lesson.content }}
-                />
-              </td>
-              <td>{lesson.date}</td>
+              <td>{new Date(lesson.date).toLocaleDateString('vi-VN')}</td>
               <td>{getLessonName(lesson.topicId)}</td>
               <td>
                 <button className="del-btn" onClick={() => handleDelete(lesson.id!)}>🗑️ Xoá</button>
