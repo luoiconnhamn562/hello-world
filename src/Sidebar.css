@@ -15,6 +15,15 @@
   box-sizing: border-box;
   transition: transform 0.3s ease;
   z-index: 1000;
+  overflow-y: auto;
+
+  /* Firefox scrollbar (ẩn mặc định, hiện khi hover) */
+  scrollbar-width: none; 
+}
+
+.sidebar:hover {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3a55 #1E1E2F;
 }
 
 .sidebar.closed {
@@ -37,13 +46,15 @@
 .sidebar ul li {
   margin: 10px 0;
   cursor: pointer;
-   background-color: #1E1E2F;
+  background-color: #1E1E2F;
   color: rgb(211, 211, 211);
 }
+
 .sidebar a {
-  color: #90CAF9	;
+  color: #90CAF9;
   text-decoration: none;
 }
+
 .toggle-button {
   position: fixed;
   top: 20px;
@@ -61,6 +72,7 @@
 .sidebar.closed ~ .toggle-button {
   left: 20px;
 }
+
 .submenu-toggle {
   background: none;
   border: none;
@@ -80,7 +92,7 @@
 
 .submenu li {
   margin-bottom: 6px;
-   background-color: #ffffff;
+  background-color: #ffffff;
   color: rgb(245, 110, 110);
 }
 
@@ -91,4 +103,29 @@
 
 .submenu a:hover {
   text-decoration: underline;
+}
+
+/* ==== Scrollbar tuỳ chỉnh ==== */
+
+/* Chrome, Edge, Safari: ẩn mặc định */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #1E1E2F;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+/* Khi hover sidebar thì scrollbar hiện */
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background-color: #3a3a55;
+}
+
+.sidebar:hover::-webkit-scrollbar-thumb:hover {
+  background-color: #5a5a7f;
 }

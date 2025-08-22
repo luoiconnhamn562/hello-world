@@ -1,17 +1,33 @@
 // src/Sidebar.tsx
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
+import Topic from './types/Topic';
+import { getTopics } from './services/TopicService';
+import { getCategories } from './services/CategoryService';
+import Category from './types/Category';
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [sortOpen, setSortOpen] = useState<boolean>(false); // điều khiển menu con "Sắp xếp"
   const [searchOpen, setSearchOpen] = useState<boolean>(false); // điều khiển menu con "Tìm kiếm"
-
+  const [topics, setTopics] = useState<Topic[]>([]);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [categories, setCategories] = useState<Category[]>([]);
+ 
+  const fetch = async () => {
+      const data = await getTopics();
+      setTopics(data);
+      const catData = await getCategories();
+      setCategories(catData);
+    };
+ 
   const toggleSidebar = () => setIsOpen(prev => !prev);
   const toggleSortMenu = () => setSortOpen(prev => !prev);
   const toggleSearchMenu = () => setSearchOpen(prev => !prev);
-
+ useEffect(() => {
+    fetch();
+  }, []);
   return (
     <div className="sidebar-container">
       <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
@@ -22,15 +38,14 @@ const Sidebar: React.FC = () => {
           
           <li>
             <button className="submenu-toggle" onClick={toggleSearchMenu}>
-              {searchOpen ? '▼' : '▶'} Tìm kiếm
+              {searchOpen ? '▼' : '▶'} Bài Học
             </button>
             {searchOpen && (
               <ul className="submenu">
-                <li><Link to="/searching/linear">Linear Search</Link></li>
-                <li><Link to="/searching/binary">Binary Search</Link></li>
-                <li><Link to="/searching/jump">Jump Search</Link></li>
-                <li><Link to="/searching/interpolation">Interpolation Search</Link></li>
-                <li><Link to="/searching/exponential">Exponential Search</Link></li>
+                {topics.map((cat) => (
+       
+                <li key={cat.id}><Link to={`/topic?id=${cat.id}`}>{cat.ten}</Link></li>
+                ))}
               </ul>
             )}
           </li>
@@ -38,15 +53,13 @@ const Sidebar: React.FC = () => {
           {/* Menu Sắp xếp có submenu */}
           <li>
             <button className="submenu-toggle" onClick={toggleSortMenu}>
-              {sortOpen ? '▼' : '▶'} Sắp xếp
+              {sortOpen ? '▼' : '▶'} Bài Viết
             </button>
             {sortOpen && (
               <ul className="submenu">
-                <li><Link to="/sorting/bubble">Bubble Sort</Link></li>
-                <li><Link to="/sorting/selection">Selection Sort</Link></li>
-                <li><Link to="/sorting/insertion">Insertion Sort</Link></li>
-                <li><Link to="/sorting/merge">Merge Sort</Link></li>
-                <li><Link to="/sorting/quick">Quick Sort</Link></li>
+                {categories.map((cat) => (
+                <li key={cat.id}><Link to="#">{cat.ten}</Link></li>
+                ))}
               </ul>
             )}
           </li>
