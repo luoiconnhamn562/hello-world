@@ -15,6 +15,8 @@ import PostPage from './pages/PostPage';
 import Topics from './pages/Topics';
 import Lesson from './pages/Lesson';
 import TopicPage from './pages/TopicPage';
+import LoginPage from "./pages/LoginPage";
+
 const App: React.FC = () => {
   
   return (
@@ -36,6 +38,7 @@ const App: React.FC = () => {
           <Route path="/topics" element={<Topics />} />
           <Route path="/lesson" element={<Lesson />} />
           <Route path="/topic" element={<TopicPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </div>
     </Router>
